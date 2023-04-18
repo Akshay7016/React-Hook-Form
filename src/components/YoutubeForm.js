@@ -1,5 +1,5 @@
 import React from 'react'
-import { useForm } from 'react-hook-form';
+import { useForm, useFieldArray } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 
 const YoutubeForm = () => {
@@ -12,11 +12,15 @@ const YoutubeForm = () => {
                 twitter: "",
                 facebook: ""
             },
-            phoneNumbers: ["", ""]
-
+            phoneNumbers: ["", ""],
+            phNumbers: [{ number: "" }]
         }
     });
     const { register, control, handleSubmit, formState: { errors } } = form;
+    const { fields, append, remove } = useFieldArray({
+        name: "phNumbers",
+        control
+    })
 
     const onSubmit = (data) => {
         console.log("Data submitted! ", data);
@@ -129,6 +133,33 @@ const YoutubeForm = () => {
                         id="secondary-phone"
                         {...register("phoneNumbers[1]")}
                     />
+                </div>
+
+                {/* Dynamic fields */}
+                <div className='label-container'>
+                    <label>List of phone numbers</label>
+                    {
+                        fields.map((field, index) => {
+                            return (
+                                <div key={field.id}>
+                                    <input
+                                        type="text"
+                                        {...register(`phNumbers.${index}.number`)}
+                                    />
+                                    {index > 0 &&
+                                        <button onClick={() => remove(index)}>
+                                            Remove phone number
+                                        </button>
+                                    }
+                                </div>
+                            )
+                        })
+                    }
+
+                    <button onClick={() => append({ number: "" })}>
+                        Add phone number
+                    </button>
+
                 </div>
 
                 <div className='button-container'>

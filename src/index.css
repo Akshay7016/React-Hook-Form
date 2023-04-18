@@ -31,6 +31,7 @@ h1 {
 }
 
 .label-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
@@ -44,6 +45,7 @@ label {
 }
 
 input {
+  width: 85%;
   padding: 10px 20px;
   outline: none;
   border-radius: 10px;
