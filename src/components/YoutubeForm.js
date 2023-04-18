@@ -8,12 +8,6 @@ const YoutubeForm = () => {
             username: "",
             email: "",
             channel: "",
-            social: {
-                twitter: "",
-                facebook: ""
-            },
-            phoneNumbers: ["", ""]
-
         }
     });
     const { register, control, handleSubmit, formState: { errors } } = form;
