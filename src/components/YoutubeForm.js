@@ -5,9 +5,9 @@ import { DevTool } from '@hookform/devtools';
 const YoutubeForm = () => {
     const form = useForm({
         defaultValues: {
-            username: "",
+            username: "Batman",
             email: "",
-            channel: "",
+            channel: "Code",
         }
     });
     const { register, control, handleSubmit, formState: { errors } } = form;
