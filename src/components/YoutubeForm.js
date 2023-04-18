@@ -12,6 +12,8 @@ const YoutubeForm = () => {
                 twitter: "",
                 facebook: ""
             },
+            phoneNumbers: ["", ""]
+
         }
     });
     const { register, control, handleSubmit, formState: { errors } } = form;
@@ -108,6 +110,24 @@ const YoutubeForm = () => {
                         type="text"
                         id="facebook"
                         {...register("social.facebook")}
+                    />
+                </div>
+
+                <div className='label-container'>
+                    <label htmlFor='primary-phone'>Primary Phone Number</label>
+                    <input
+                        type="text"
+                        id="primary-phone"
+                        {...register("phoneNumbers[0]")}
+                    />
+                </div>
+
+                <div className='label-container'>
+                    <label htmlFor='secondary-phone'>Secondary Phone Number</label>
+                    <input
+                        type="text"
+                        id="secondary-phone"
+                        {...register("phoneNumbers[1]")}
                     />
                 </div>
 
