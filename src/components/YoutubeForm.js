@@ -8,9 +8,15 @@ const YoutubeForm = () => {
             username: "",
             email: "",
             channel: "",
+            social: {
+                twitter: "",
+                facebook: ""
+            },
+            phoneNumbers: ["", ""]
+
         }
     });
-    const { register, control, handleSubmit } = form;
+    const { register, control, handleSubmit, formState: { errors } } = form;
 
     const onSubmit = (data) => {
         console.log("Data submitted! ", data);
@@ -30,8 +36,12 @@ const YoutubeForm = () => {
                                 value: 5,
                                 message: "username minimum length should be 5"
                             }
-                        })}
-                    />
+                        })} />
+                    {/* Displaying error messages */}
+                    {
+                        errors.username?.message &&
+                        <p className='error'>{errors.username?.message}</p>
+                    }
                 </div>
 
                 <div className='label-container'>
@@ -61,8 +71,11 @@ const YoutubeForm = () => {
                                 }
                             }
                         }
-                        )}
-                    />
+                        )} />
+                    {
+                        errors.email?.message &&
+                        <p className='error'>{errors.email?.message}</p>
+                    }
                 </div>
 
                 <div className='label-container'>
@@ -75,8 +88,11 @@ const YoutubeForm = () => {
                                 value: true,
                                 message: "Channel name is required"
                             }
-                        })}
-                    />
+                        })} />
+                    {
+                        errors.channel?.message &&
+                        <p className='error'>{errors.channel?.message}</p>
+                    }
                 </div>
 
                 <div className='button-container'>
