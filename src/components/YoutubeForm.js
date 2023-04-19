@@ -18,7 +18,7 @@ const YoutubeForm = () => {
             dob: new Date()
         }
     });
-    const { register, control, handleSubmit, formState: { errors }, watch, getValues } = form;
+    const { register, control, handleSubmit, formState: { errors }, watch, getValues, setValue } = form;
     const { fields, append, remove } = useFieldArray({
         name: "phNumbers",
         control
@@ -41,6 +41,16 @@ const YoutubeForm = () => {
         console.log("form values: ", getValues());
         console.log("Channel: ", getValues("channel"));
         console.log("Username & Channel: ", getValues(["username", "channel"]));
+    }
+
+    const handleSetValue = () => {
+        // setValue("username", "Akshay112233");
+
+        setValue("channel", "Codeevolution", {
+            shouldDirty: true,
+            shouldValidate: true,
+            shouldTouch: true
+        })
     }
 
     const onSubmit = (data) => {
@@ -230,10 +240,18 @@ const YoutubeForm = () => {
                         }
                     </div>
 
-                    <div className='button-container'>
-                        <button onClick={handleGetValues} className='get-values'>
-                            Get Values
-                        </button>
+                    <div className='button-flex'>
+                        <div className='button-container'>
+                            <button onClick={handleGetValues} className='get-values'>
+                                Get Values
+                            </button>
+                        </div>
+
+                        <div className='button-container'>
+                            <button onClick={handleSetValue} className='set-value'>
+                                Set Value
+                            </button>
+                        </div>
                     </div>
 
                     <div className='button-container'>

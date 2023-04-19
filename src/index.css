@@ -117,11 +117,25 @@ button:hover {
   background-color: #ee82ee;
 }
 
-.get-values{
+.get-values {
   padding: 10px 20px;
   background-color: orange;
 }
 
-.get-values:hover{
+.get-values:hover {
   background-color: rgb(228, 149, 2);
+}
+
+.set-value{
+  padding: 10px 20px;
+  background-color: blueviolet;
+}
+
+.set-value:hover{
+  background-color: rgb(121, 24, 211);
+}
+
+.button-flex{
+  display: flex;
+  margin-bottom: 20px;
 }
