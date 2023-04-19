@@ -31,7 +31,6 @@ h1 {
 }
 
 .label-container {
-  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
@@ -45,7 +44,6 @@ label {
 }
 
 input {
-  width: 85%;
   padding: 10px 20px;
   outline: none;
   border-radius: 10px;
@@ -57,15 +55,15 @@ input {
 button {
   border: none;
   cursor: pointer;
-  padding: 15px 30px;
-  background-color: rgb(255, 88, 116);
+  padding: 15px 120px;
+  background-color: #29ab87;
   font-size: 18px;
   margin-top: 10px;
   border-radius: 5px;
 }
 
 button:hover {
-  background-color: rgb(252, 65, 96);
+  background-color: #00a86b;
   color: white;
 }
 
@@ -79,4 +77,42 @@ button:hover {
   font-size: 12px;
   color: red;
   margin: 0;
+}
+
+.dynamic-container {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dynamic-field {
+  display: flex;
+  gap: 12px;
+}
+
+.remove-button {
+  font-size: 10px;
+  height: 36px;
+  padding: 0;
+  margin-top: 0;
+  background-color: #e52b50;
+  color: white;
+}
+
+.remove-button:hover {
+  background-color: #d2122e;
+}
+
+.add-button {
+  font-size: 14px;
+  height: 36px;
+  padding: 4px 10px;
+  margin: 20px 0px 20px 80px;
+  background-color: #dda0dd;
+  color: black;
+}
+
+.add-button:hover {
+  background-color: #ee82ee;
 }

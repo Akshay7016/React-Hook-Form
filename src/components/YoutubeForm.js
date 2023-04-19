@@ -136,27 +136,29 @@ const YoutubeForm = () => {
                 </div>
 
                 {/* Dynamic fields */}
-                <div className='label-container'>
+                <div>
                     <label>List of phone numbers</label>
-                    {
-                        fields.map((field, index) => {
-                            return (
-                                <div key={field.id}>
-                                    <input
-                                        type="text"
-                                        {...register(`phNumbers.${index}.number`)}
-                                    />
-                                    {index > 0 &&
-                                        <button onClick={() => remove(index)}>
-                                            Remove phone number
-                                        </button>
-                                    }
-                                </div>
-                            )
-                        })
-                    }
+                    <div className='dynamic-container'>
+                        {
+                            fields.map((field, index) => {
+                                return (
+                                    <div key={field.id} className="dynamic-field">
+                                        <input
+                                            type="text"
+                                            {...register(`phNumbers.${index}.number`)}
+                                        />
+                                        {index > 0 &&
+                                            <button className='remove-button' onClick={() => remove(index)}>
+                                                Remove phone number
+                                            </button>
+                                        }
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
 
-                    <button onClick={() => append({ number: "" })}>
+                    <button className='add-button' onClick={() => append({ number: "" })}>
                         Add phone number
                     </button>
 
