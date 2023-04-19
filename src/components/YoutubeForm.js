@@ -18,7 +18,7 @@ const YoutubeForm = () => {
             dob: new Date()
         }
     });
-    const { register, control, handleSubmit, formState: { errors }, watch } = form;
+    const { register, control, handleSubmit, formState: { errors }, watch, getValues } = form;
     const { fields, append, remove } = useFieldArray({
         name: "phNumbers",
         control
@@ -28,14 +28,20 @@ const YoutubeForm = () => {
     // const watchUsernameEmail = watch(["username", "email"])
     // const watchForm = watch();
 
-    useEffect(() => {
-        const subscription = watch((value) => {
-            console.log(value);
-        });
+    // useEffect(() => {
+    //     const subscription = watch((value) => {
+    //         console.log(value);
+    //     });
 
-        // clean-up code
-        return () => subscription.unsubscribe();
-    }, [watch])
+    //     // clean-up code
+    //     return () => subscription.unsubscribe();
+    // }, [watch])
+
+    const handleGetValues = () => {
+        console.log("form values: ", getValues());
+        console.log("Channel: ", getValues("channel"));
+        console.log("Username & Channel: ", getValues(["username", "channel"]));
+    }
 
     const onSubmit = (data) => {
         console.log("Data submitted! ", data);
@@ -222,6 +228,12 @@ const YoutubeForm = () => {
                             errors.dob?.message &&
                             <p className='error'>{errors.dob?.message}</p>
                         }
+                    </div>
+
+                    <div className='button-container'>
+                        <button onClick={handleGetValues} className='get-values'>
+                            Get Values
+                        </button>
                     </div>
 
                     <div className='button-container'>
