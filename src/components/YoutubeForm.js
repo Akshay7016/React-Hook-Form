@@ -13,7 +13,9 @@ const YoutubeForm = () => {
                 facebook: ""
             },
             phoneNumbers: ["", ""],
-            phNumbers: [{ number: "" }]
+            phNumbers: [{ number: "" }],
+            age: 0,
+            dob: new Date()
         }
     });
     const { register, control, handleSubmit, formState: { errors } } = form;
@@ -29,6 +31,7 @@ const YoutubeForm = () => {
     return (
         <div className='form-container'>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
+                {/* Username */}
                 <div className='label-container'>
                     <label htmlFor='username'>Username</label>
                     <input
@@ -48,6 +51,7 @@ const YoutubeForm = () => {
                     }
                 </div>
 
+                {/* Email */}
                 <div className='label-container'>
                     <label htmlFor='email'>Email</label>
                     <input
@@ -82,6 +86,7 @@ const YoutubeForm = () => {
                     }
                 </div>
 
+                {/* Channel */}
                 <div className='label-container'>
                     <label htmlFor='channel'>Channel</label>
                     <input
@@ -99,6 +104,7 @@ const YoutubeForm = () => {
                     }
                 </div>
 
+                {/* Nested objects */}
                 <div className='label-container'>
                     <label htmlFor='twitter'>Twitter</label>
                     <input
@@ -117,6 +123,7 @@ const YoutubeForm = () => {
                     />
                 </div>
 
+                {/* Nested array */}
                 <div className='label-container'>
                     <label htmlFor='primary-phone'>Primary Phone Number</label>
                     <input
@@ -162,6 +169,44 @@ const YoutubeForm = () => {
                         Add phone number
                     </button>
 
+                </div>
+
+                {/* age */}
+                <div className='label-container'>
+                    <label htmlFor='age'>Age</label>
+                    <input
+                        type="number"
+                        id="age"
+                        {...register("age", {
+                            valueAsNumber: true,
+                            required: {
+                                value: true,
+                                message: "Age is required"
+                            }
+                        })} />
+                    {
+                        errors.age?.message &&
+                        <p className='error'>{errors.age?.message}</p>
+                    }
+                </div>
+
+                {/* DOB */}
+                <div className='label-container'>
+                    <label htmlFor='dob'>Date of birth</label>
+                    <input
+                        type="date"
+                        id="dob"
+                        {...register("dob", {
+                            valueAsDate: true,
+                            required: {
+                                value: true,
+                                message: "Date of birth is required"
+                            }
+                        })} />
+                    {
+                        errors.dob?.message &&
+                        <p className='error'>{errors.dob?.message}</p>
+                    }
                 </div>
 
                 <div className='button-container'>
