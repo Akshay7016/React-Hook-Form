@@ -153,7 +153,9 @@ const YoutubeForm = () => {
                         <input
                             type="text"
                             id="facebook"
-                            {...register("social.facebook")}
+                            {...register("social.facebook", {
+                                disabled: watch("social.twitter") === ""
+                            })}
                         />
                     </div>
 
