@@ -18,11 +18,14 @@ const YoutubeForm = () => {
             dob: new Date()
         }
     });
-    const { register, control, handleSubmit, formState: { errors }, watch, getValues, setValue } = form;
+    const { register, control, handleSubmit, formState, watch, getValues, setValue } = form;
+    const { errors, touchedFields, dirtyFields, isDirty } = formState;
     const { fields, append, remove } = useFieldArray({
         name: "phNumbers",
         control
     })
+
+    console.log({ touchedFields, dirtyFields, isDirty });
 
     // const watchUsername = watch("username");
     // const watchUsernameEmail = watch(["username", "email"])
